@@ -1,6 +1,6 @@
-import {atom} from "recoil";
+import { atom } from 'recoil';
 
 export const loadingPanelState = atom({
-    key:'loadingPanelState',
-    default:false
-})
+    key: 'loadingPanelState',
+    default: false,
+});
