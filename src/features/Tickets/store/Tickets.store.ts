@@ -1,11 +1,13 @@
 import { atom } from 'recoil';
+import { Guid } from '../../../app/guid';
 
 export interface Ticket {
     name: string;
     content: string;
+    guid: Guid;
 }
 
-export const EmptyTicket = { content: '', name: '' } as Ticket;
+export const EmptyTicket = { content: '', name: '', guid: Guid.NewGuid() } as Ticket;
 
 export const ticketsListState = atom({
     key: 'ticketsListState',
@@ -13,8 +15,9 @@ export const ticketsListState = atom({
         {
             name: 'First Ticket',
             content: 'Add more tickets',
+            guid: Guid.NewGuid(),
         },
-    ],
+    ] as Ticket[],
 });
 export const ticketNameState = atom({
     key: 'ticketNameState',

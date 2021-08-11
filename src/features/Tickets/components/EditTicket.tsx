@@ -1,6 +1,7 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { showEditTicketState, Ticket, ticketContentState, ticketNameState } from '../store/Tickets.store';
 import { useRecoilState, useRecoilValue } from 'recoil';
+import { Guid } from '../../../app/guid';
 
 interface EditTicketProps {
     onSave: (input: Ticket) => Promise<void>;
@@ -29,7 +30,7 @@ const EditTicketComponent: FC<EditTicketProps> = ({ onSave }) => {
                             setContent(e.target.value);
                         }}
                     />
-                    <button onClick={() => onSave({ name, content })}>Zapisz</button>
+                    <button onClick={() => onSave({ name, content, guid: Guid.NewGuid() })}>Zapisz</button>
                 </>
             )}
         </>
